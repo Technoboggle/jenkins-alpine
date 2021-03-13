@@ -26,10 +26,6 @@ chmod 0666 *
 chmod 0777 .git
 chmod 0777 *.sh
 
-
-
-
-
 #chmod 0755 scripts/start.sh
 docker network create jenkins
 docker build -f Dockerfile -t technoboggle/jenkins-alpine:2.277.1 .
