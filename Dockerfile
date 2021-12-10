@@ -1,4 +1,12 @@
-FROM jenkins/jenkins:2.277.1-lts-alpine
+FROM jenkins/jenkins:alpine-jdk11
+LABEL org.opencontainers.image.vendor="Jenkins project" \
+org.opencontainers.image.title="Official Jenkins Docker image" \
+org.opencontainers.image.description="The Jenkins Continuous Integration and Delivery server" \
+org.opencontainers.image.version="2.317" \
+org.opencontainers.image.url="https://www.jenkins.io/" \
+org.opencontainers.image.source="https://github.com/jenkinsci/docker" \
+org.opencontainers.image.licenses="MIT" \
+net.technoboggle.buildDate=$buildDate
 USER root
 #RUN apt-get update && apt-get install -y apt-transport-https \
 #       ca-certificates curl gnupg2 \
@@ -15,7 +23,8 @@ USER root
 
 
 
-RUN apk add --no-cache --update \
+RUN apt-get update; \
+  apk add --no-cache --update \
 #  apt-transport-https \
   ca-certificates \
   curl \

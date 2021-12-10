@@ -1,4 +1,9 @@
+.git
+*Dockerfile*
+*docker-compose*
 # comment
 */temp*
 */*/temp*
 temp?
+jenkins_home
+jenkins-docker-certs
