@@ -6,14 +6,17 @@ a docker image base on alpine with jenkins
 docker build --progress=plain -f Dockerfile -t technoboggle/jenkins:alpine-jdk11 --build-arg buildDate=$(date +'%Y-%m-%d') --no-cache --progress=plain . 
 ```
 
+docker tag technoboggle/jenkins:alpine-jdk11 technoboggle/jenkins:alpine-latest
+docker push technoboggle/jenkins:alpine-jdk11
+
+
+
 # Usage
 ```
 docker network create jenkins
 docker run --detach --publish 8180:8080 --publish 50000:50000 --volume jenkins_home:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro --rm --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 --name jenkins technoboggle/jenkins:alpine-jdk11
 
 docker run --detach --publish 8180:8080 --publish 50000:50000 --mount type=bind,source="$(pwd)"/jenkins_home,target=/var/jenkins_home --mount type=bind,source="$(pwd)"/jenkins-docker-certs,target=/var/jenkins-docker-certs,readonly --rm --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 --name jenkins technoboggle/jenkins:alpine-jdk11
-
-
 
 ```
 
