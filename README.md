@@ -3,7 +3,7 @@ a docker image base on alpine with jenkins
 
 # build image
 ```
-docker build --progress=plain -f Dockerfile -t technoboggle/jenkins:alpine-jdk11 --build-arg buildDate=$(date +'%Y-%m-%d') --no-cache --progress=plain . 
+docker build --progress=plain -f Dockerfile -t technoboggle/jenkins-alpine-jdk11:2.2-3.15 --build-arg buildDate=$(date +'%Y-%m-%d') --no-cache --progress=plain . 
 ```
 
 docker tag technoboggle/jenkins:alpine-jdk11 technoboggle/jenkins:alpine-latest
