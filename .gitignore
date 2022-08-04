@@ -48,3 +48,8 @@ Thumbs.db
 *.swo
 *#
 *.iml
+
+# Container Specific Entries #
+##############################
+jenkins-docker-certs
+jenkins-home

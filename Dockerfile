@@ -1,8 +1,8 @@
-FROM jenkins/jenkins:alpine-jdk11
+FROM jenkins/jenkins:2.362-alpine-jdk17
 LABEL org.opencontainers.image.vendor="Jenkins project" \
 org.opencontainers.image.title="Official Jenkins Docker image" \
 org.opencontainers.image.description="The Jenkins Continuous Integration and Delivery server" \
-org.opencontainers.image.version="2.317" \
+org.opencontainers.image.version="2.362" \
 org.opencontainers.image.url="https://www.jenkins.io/" \
 org.opencontainers.image.source="https://github.com/jenkinsci/docker" \
 org.opencontainers.image.licenses="MIT" \
@@ -29,7 +29,7 @@ RUN apt-get update; \
   ca-certificates \
   curl \
   tar \
-  xz 
+  xz; \
 #  gnupg2 
 
 #RUN apt-get update && apt-get install -y apt-transport-https \
@@ -37,8 +37,7 @@ RUN apt-get update; \
 #       software-properties-common
 
 
-
-RUN apk add --no-cache --update gnupg docker-cli
+  apk add --no-cache --update gnupg docker-cli
 #RUN apt-key fingerprint 0EBFCD88
 #RUN add-apt-repository \
 #       "deb [arch=amd64] https://download.docker.com/linux/debian \
