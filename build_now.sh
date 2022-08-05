@@ -32,10 +32,10 @@ docker build -f Dockerfile -t technoboggle/jenkins-alpine:"$jenkins_ver-$alpine_
 
 docker run -it -d --rm -p 8180:8080 -p 50000:50000 -v jenkins-home:/var/jenkins-home -v jenkins-docker-certs:/certs/client:ro --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 --name myjenkins technoboggle/jenkins-alpine:"$jenkins_ver-$alpine_ver"
 
-docker tag technoboggle/jenkins-alpine:"$jenkins_ver-$alpine_ver" technoboggle/jenkins-alpine:latest
+#docker tag technoboggle/jenkins-alpine:"$jenkins_ver-$alpine_ver" technoboggle/jenkins-alpine:latest
 docker login
 docker push technoboggle/jenkins-alpine:"$jenkins_ver-$alpine_ver"
-docker push technoboggle/jenkins-alpine:latest
-#docker container stop -t 10 myjenkins
+#docker push technoboggle/jenkins-alpine:latest
+docker container stop -t 10 myjenkins
 
 cd "$owd"

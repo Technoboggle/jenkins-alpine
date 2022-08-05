@@ -46,3 +46,6 @@ docker container stop -t 10 mysql
 ```
 curl -iL -e http://192.168.1.165:8180/jenkins/manage \
             http://192.168.1.165:8180/jenkins/${BASE}/test
+            
+            
+deprecated the use of the :latest tag as it seeds confusion
