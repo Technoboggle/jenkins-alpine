@@ -1,8 +1,8 @@
-FROM jenkins/jenkins:2.362-alpine-jdk17
+FROM jenkins/jenkins:2.386-alpine-jdk17
 LABEL org.opencontainers.image.vendor="Jenkins project" \
 org.opencontainers.image.title="Official Jenkins Docker image" \
 org.opencontainers.image.description="The Jenkins Continuous Integration and Delivery server" \
-org.opencontainers.image.version="2.362" \
+org.opencontainers.image.version="2.386" \
 org.opencontainers.image.url="https://www.jenkins.io/" \
 org.opencontainers.image.source="https://github.com/jenkinsci/docker" \
 org.opencontainers.image.licenses="MIT" \
