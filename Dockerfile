@@ -1,12 +1,12 @@
-FROM jenkins/jenkins:2.386-alpine-jdk17
+FROM jenkins/jenkins:2.416-alpine-jdk17
 LABEL org.opencontainers.image.vendor="Jenkins project" \
-org.opencontainers.image.title="Official Jenkins Docker image" \
-org.opencontainers.image.description="The Jenkins Continuous Integration and Delivery server" \
-org.opencontainers.image.version="2.386" \
-org.opencontainers.image.url="https://www.jenkins.io/" \
-org.opencontainers.image.source="https://github.com/jenkinsci/docker" \
-org.opencontainers.image.licenses="MIT" \
-net.technoboggle.buildDate=$buildDate
+      org.opencontainers.image.title="Official Jenkins Docker image" \
+      org.opencontainers.image.description="The Jenkins Continuous Integration and Delivery server" \
+      org.opencontainers.image.version="2.416" \
+      org.opencontainers.image.url="https://www.jenkins.io/" \
+      org.opencontainers.image.source="https://github.com/jenkinsci/docker" \
+      org.opencontainers.image.licenses="MIT" \
+      net.technoboggle.buildDate=$buildDate
 USER root
 #RUN apt-get update && apt-get install -y apt-transport-https \
 #       ca-certificates curl gnupg2 \
@@ -30,13 +30,12 @@ RUN apt-get update; \
   curl \
   tar \
   xz; \
-#  gnupg2 
-
+#  gnupg2
+  \
 #RUN apt-get update && apt-get install -y apt-transport-https \
 #       ca-certificates curl gnupg2 \
 #       software-properties-common
-
-
+  \
   apk add --no-cache --update gnupg docker-cli
 #RUN apt-key fingerprint 0EBFCD88
 #RUN add-apt-repository \
@@ -44,4 +43,5 @@ RUN apt-get update; \
 #       $(lsb_release -cs) stable"
 #RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
-RUN jenkins-plugin-cli --plugins blueocean:1.24.4
+#RUN jenkins-plugin-cli --plugins blueocean:1.24.4
+RUN jenkins-plugin-cli --plugins blueocean
